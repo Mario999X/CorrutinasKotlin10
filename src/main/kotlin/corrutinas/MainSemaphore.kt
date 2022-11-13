@@ -31,9 +31,11 @@ private data class Productor(private val id: String, private val totalKilos: Int
     suspend fun produceLitros() {
         for (i in 1..totalKilos) {
             litrosTotales++
-            deposito.put(litrosTotales)
-            litrosTotales = 0
-            delay(1000)
+            if (litrosTotales == 5) {
+                deposito.put(litrosTotales)
+                litrosTotales = 0
+                delay(1000)
+            }
         }
     }
 
