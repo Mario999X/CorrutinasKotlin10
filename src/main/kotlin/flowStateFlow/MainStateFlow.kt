@@ -27,7 +27,7 @@ private data class Productor(private val id: String, private val totalKilos: Int
     private var litrosTotales = 0
     private var contadorId = 1
 
-    suspend fun produceLitros() {
+    suspend fun produceBotella() {
         for (i in 1..totalKilos) {
             litrosTotales++
             if (litrosTotales == 5) {
@@ -108,7 +108,7 @@ fun main(): Unit = runBlocking {
     val empaquetador = Empaquetador("Empaquetador-1", deposito)
 
     launch {
-        productor.produceLitros()
+        productor.produceBotella()
     }
 
     launch {
